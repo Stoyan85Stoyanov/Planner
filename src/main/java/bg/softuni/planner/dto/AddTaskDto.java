@@ -4,9 +4,15 @@ package bg.softuni.planner.dto;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.*;
 
 import java.time.LocalDate;
 
+@Getter
+@Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class AddTaskDto {
 
 
@@ -19,33 +25,5 @@ public class AddTaskDto {
 
     @NotBlank
     private String priority;
-
-    public AddTaskDto() {
-    }
-
-
-    public  String getDescription() {
-        return description;
-    }
-
-    public void setDescription( String description) {
-        this.description = description;
-    }
-
-    public LocalDate getDueDate() {
-        return dueDate;
-    }
-
-    public void setDueDate(LocalDate dueDate) {
-        this.dueDate = dueDate;
-    }
-
-    public String getPriority() {
-        return priority;
-    }
-
-    public void setPriority(String priority) {
-        this.priority = priority;
-    }
 
 }
