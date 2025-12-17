@@ -23,4 +23,9 @@ public class Priority extends BaseEntity {
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "priority")
     private Set<Task> tasks;
+
+    public Priority(PriorityName priorityName, String description) {
+        this.priorityName = priorityName;
+        this.description = description;
+    }
 }
