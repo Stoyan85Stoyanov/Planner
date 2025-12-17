@@ -41,7 +41,7 @@ public class UserService {
         return true;
     }
 
-    public boolean login (UserLoginDto data){
+    public boolean login(UserLoginDto data) {
         Optional<User> byUsername = userRepository.findUserByUsername(data.getUsername());
 
         if (byUsername.isEmpty()) {
