@@ -7,28 +7,28 @@ import org.springframework.web.context.annotation.SessionScope;
 @Component
 public class UserSession {
 
-     private long id;
-     private String username;
+    private long id;
+    private String username;
 
-     public void login(long id, String username) {
+    public void login(long id, String username) {
         this.id = id;
         this.username = username;
-     }
+    }
 
-     public boolean isLoggedIn() {
-         return id > 0;
-     }
+    public boolean isLoggedIn() {
+        return id > 0;
+    }
 
     public Long id() {
-         return id;
+        return id;
     }
 
     public String username() {
-         return username;
+        return username;
     }
 
     public void logout() {
-         id = 0;
-         username = null;
+        id = 0;
+        username = null;
     }
 }
