@@ -38,8 +38,8 @@ public class TaskController {
 
     @PostMapping("/task-add")
     public String doAddTask(@Valid AddTaskDto data,
-                             BindingResult bindingResult,
-                             RedirectAttributes redirectAttributes
+                            BindingResult bindingResult,
+                            RedirectAttributes redirectAttributes
     ) {
 
         if (!userSession.isLoggedIn()) {
@@ -62,22 +62,8 @@ public class TaskController {
         }
         return "redirect:/home";
     }
-    // -----  task-add
 
-//   @PostMapping("/add-to-assigned-to-me/{taskId}")
-//     public String addToAssignedToMe(@PathVariable long taskId) {
-//
-//       if (!userSession.isLoggedIn()) {
-//           return "redirect:/";
-//       }
-//
-//       taskService.addToAssignedToMe(userSession.id(), taskId);
-//
-//       return "redirect:/home";
-//   }
-//
-//
-        // Delete button !!!
+    // Delete button !!!
     @GetMapping("/tasks/remove/{id}")
     public String deleteTask(@PathVariable Long id) {
         taskService.delete(id);
