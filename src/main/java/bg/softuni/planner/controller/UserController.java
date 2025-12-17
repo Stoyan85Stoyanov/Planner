@@ -33,6 +33,7 @@ public class UserController {
     public UserLoginDto loginDto() {
         return new UserLoginDto();
     }
+
     @GetMapping("/register")
     public String register() {
         return "register";
@@ -72,8 +73,8 @@ public class UserController {
     public String doLogin(
             @Valid UserLoginDto data,
             BindingResult bindingResult,
-            RedirectAttributes redirectAttributes
-    ) {
+            RedirectAttributes redirectAttributes ) {
+
 
         if (userSession.isLoggedIn()) {
             return "redirect:/home";
@@ -87,6 +88,7 @@ public class UserController {
         }
 
         boolean success = userService.login(data);
+
         if (!success) {
             redirectAttributes.addFlashAttribute("loginError", true);
 
@@ -98,9 +100,11 @@ public class UserController {
 
     @GetMapping("/logout")
     public String logout() {
-        if(!userSession.isLoggedIn()) {
+
+        if (!userSession.isLoggedIn()) {
             return "redirect:/";
         }
+
         userSession.logout();
         return "redirect:/";
     }
