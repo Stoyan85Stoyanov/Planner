@@ -6,6 +6,7 @@ import bg.softuni.planner.dto.UserLoginDto;
 import bg.softuni.planner.dto.UserRegisterDto;
 import bg.softuni.planner.service.UserService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ public class UserController {
     private final UserSession userSession;
     private final UserService userService;
 
+    @Autowired
     public UserController(UserSession userSession, UserService userService) {
         this.userSession = userSession;
         this.userService = userService;
