@@ -55,7 +55,9 @@ public class UserController {
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.registerData", bindingResult);
             return "redirect:/register";
         }
+
         boolean success = userService.register(data);
+        
         if (!success) {
             return "redirect:/register";
         }
